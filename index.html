@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homepage Concept for 3D Concept Analysis & Development | Aiyzer</title>
+<style>
+:root{
+  --bg:#0c0e12; --bg2:#12151b; --card:#171b23; --line:#262b36;
+  --text:#e9ecf1; --muted:#9aa3b2; --accent:#ff7a1a; --accent2:#ffb36b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,"Segoe UI",system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* concept ribbon */
+.ribbon{background:var(--accent);color:#111;font-size:13px;font-weight:600;text-align:center;padding:8px 16px;letter-spacing:.2px}
+.ribbon span{opacity:.8;font-weight:500}
+
+/* nav */
+header{position:sticky;top:0;z-index:20;background:rgba(12,14,18,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:.5px}
+.logo i{width:30px;height:30px;border:2px solid var(--accent);border-radius:8px;display:grid;place-items:center;font-style:normal;color:var(--accent);font-size:13px}
+nav ul{display:flex;gap:30px;list-style:none;font-size:14px;color:var(--muted)}
+nav a:hover{color:var(--text)}
+.btn{display:inline-block;padding:13px 26px;border-radius:8px;font-weight:600;font-size:15px;transition:.2s;border:1px solid transparent}
+.btn.primary{background:var(--accent);color:#111}
+.btn.primary:hover{background:var(--accent2);transform:translateY(-2px)}
+.btn.ghost{border-color:var(--line);color:var(--text)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.nav .btn{padding:9px 18px;font-size:14px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:110px 0 90px;
+  background:
+   radial-gradient(900px 400px at 85% -10%,rgba(255,122,26,.18),transparent 60%),
+   linear-gradient(var(--bg),var(--bg2))}
+.hero:before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:48px 48px;opacity:.35;mask-image:linear-gradient(to bottom,#000 30%,transparent 95%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.tag{display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(255,122,26,.4);padding:6px 14px;border-radius:99px;margin-bottom:22px}
+h1{font-size:clamp(34px,5vw,58px);line-height:1.08;font-weight:800;letter-spacing:-1px}
+h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{margin:22px 0 34px;color:var(--muted);font-size:18px;max-width:540px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+
+/* hero visual: CSS gear / blueprint */
+.visual{position:relative;aspect-ratio:1/1;max-width:430px;margin-left:auto;width:100%}
+.ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(255,122,26,.45);animation:spin 40s linear infinite}
+.ring.r2{inset:12%;border-style:solid;border-color:var(--line);animation-direction:reverse;animation-duration:30s}
+.ring.r3{inset:26%;border:2px solid rgba(255,122,26,.7);animation-duration:22s}
+.ring:after{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;background:var(--accent);border-radius:50%;box-shadow:0 0 18px var(--accent)}
+.core{position:absolute;inset:38%;border-radius:50%;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;font-weight:800;font-size:22px;color:var(--accent);text-align:center;line-height:1.1}
+.core small{display:block;font-size:10px;color:var(--muted);font-weight:500;letter-spacing:1.5px}
+.chip{position:absolute;background:var(--card);border:1px solid var(--line);padding:8px 14px;border-radius:10px;font-size:12px;color:var(--muted);box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.chip b{color:var(--text)}
+.c1{top:6%;left:-6%}.c2{top:46%;right:-8%}.c3{bottom:6%;left:8%}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* stats */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-top:34px;padding-bottom:34px;text-align:center}
+.stats strong{display:block;font-size:34px;color:var(--accent);font-weight:800}
+.stats span{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px}
+
+/* sections */
+section{padding:96px 0}
+.head{max-width:640px;margin-bottom:50px}
+.head .k{color:var(--accent);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.head h2{font-size:clamp(28px,3.6vw,42px);line-height:1.15;margin:10px 0 14px;letter-spacing:-.5px}
+.head p{color:var(--muted);font-size:17px}
+.center{margin-left:auto;margin-right:auto;text-align:center}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px;transition:.25s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:rgba(255,122,26,.6)}
+.card:before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--accent);transition:.35s}
+.card:hover:before{width:100%}
+.ico{width:52px;height:52px;border-radius:12px;background:rgba(255,122,26,.12);color:var(--accent);display:grid;place-items:center;font-size:24px;margin-bottom:20px}
+.card h3{font-size:21px;margin-bottom:10px}
+.card p{color:var(--muted);font-size:15px;margin-bottom:18px}
+.card a{color:var(--accent);font-weight:600;font-size:14px}
+.card a:after{content:" →"}
+
+/* about split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.list{list-style:none;margin:24px 0 32px}
+.list li{padding:12px 0 12px 34px;position:relative;border-bottom:1px solid var(--line);color:var(--muted)}
+.list li:before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:800}
+.list li b{color:var(--text)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px}
+.bar{margin-bottom:22px}
+.bar div{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px;color:var(--muted)}
+.bar div b{color:var(--text)}
+.bar i{display:block;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i:after{content:"";display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.step{padding:28px 24px;border-left:2px solid var(--line);position:relative}
+.step:before{counter-increment:s;content:"0" counter(s);font-size:40px;font-weight:800;color:rgba(255,122,26,.28);display:block;margin-bottom:6px}
+.step:hover{border-color:var(--accent)}
+.step h4{font-size:18px;margin-bottom:6px}
+.step p{font-size:14px;color:var(--muted)}
+
+/* CTA band */
+.band{background:linear-gradient(120deg,#1b1208,#2a1807);border:1px solid rgba(255,122,26,.35);border-radius:22px;padding:60px 40px;text-align:center}
+.band h2{font-size:clamp(26px,3.4vw,40px);margin-bottom:12px}
+.band p{color:var(--muted);max-width:560px;margin:0 auto 28px}
+
+/* contact form */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px}
+form{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:32px;display:grid;gap:14px}
+input,textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--text);padding:13px 14px;border-radius:8px;font:inherit}
+input:focus,textarea:focus{outline:none;border-color:var(--accent)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.info p{color:var(--muted);margin-bottom:14px}
+.info b{color:var(--text);display:block}
+
+footer{border-top:1px solid var(--line);background:var(--bg2);padding:34px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a{color:var(--accent)}
+
+@media(max-width:900px){
+  nav ul{display:none}
+  .hero .wrap,.split,.contact{grid-template-columns:1fr}
+  .visual{margin:20px auto 0;max-width:340px}
+  .grid3,.steps{grid-template-columns:1fr}
+  .stats .wrap{grid-template-columns:repeat(2,1fr)}
+  .row{grid-template-columns:1fr}
+  section{padding:70px 0}
+}
+</style>
+</head>
+<body>
+
+<div class="ribbon">DESIGN CONCEPT PREVIEW &nbsp;<span>· Prepared by Aiyzer as a proposal. This is not the official website.</span></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#"><i>3D</i> 3D CONCEPT ANALYSIS</a>
+    <nav>
+      <ul>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#smart">Smart Products</a></li>
+        <li><a href="#about">Company</a></li>
+        <li><a href="#process">Process</a></li>
+      </ul>
+    </nav>
+    <a class="btn primary" href="#contact">Get a Quote</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="tag">Industrial Automation · Bangalore</span>
+      <h1>Precision Engineering &amp; Manufacturing for <em>Seamless Execution</em></h1>
+      <p class="lead">From concept to completion. Turnkey automation solutions, assembly lines and special-purpose machinery, engineered around your exact needs.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Start Your Project</a>
+        <a class="btn ghost" href="#solutions">Explore Solutions</a>
+      </div>
+    </div>
+    <div class="visual" aria-hidden="true">
+      <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
+      <div class="core"><div>CAD<small>TO REALITY</small></div></div>
+      <div class="chip c1"><b>Design</b> · Analysis</div>
+      <div class="chip c2"><b>Build</b> · Assemble</div>
+      <div class="chip c3"><b>Deploy</b> · Support</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap">
+    <div><strong>18+</strong><span>Years of Expertise</span></div>
+    <div><strong>3</strong><span>Core Divisions</span></div>
+    <div><strong>End-to-End</strong><span>Concept to Deployment</span></div>
+    <div><strong>Turnkey</strong><span>Automation Solutions</span></div>
+  </div>
+</div>
+
+<!-- WHAT WE SERVE -->
+<section id="solutions">
+  <div class="wrap">
+    <div class="head center">
+      <div class="k">What We Serve</div>
+      <h2>Transforming Industrial Automation</h2>
+      <p>Three focused divisions, one team that takes your idea all the way to the shop floor.</p>
+    </div>
+    <div class="grid3">
+      <div class="card" id="solutions-card">
+        <div class="ico">⚙</div>
+        <h3>Solutions</h3>
+        <p>Comprehensive turnkey automation solutions, tailored to improve the efficiency, reliability and productivity of your manufacturing processes.</p>
+        <a href="#contact">Explore Solutions</a>
+      </div>
+      <div class="card" id="services">
+        <div class="ico">🛠</div>
+        <h3>Services</h3>
+        <p>Custom engineering design, prototyping and manufacturing. High-quality solutions built for the unique challenges of modern industries.</p>
+        <a href="#contact">Explore Services</a>
+      </div>
+      <div class="card" id="smart">
+        <div class="ico">💡</div>
+        <h3>Smart Products</h3>
+        <p>Proprietary and distributed smart products that streamline operations and raise overall productivity in manufacturing.</p>
+        <a href="#contact">Explore Smart Products</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap split">
+    <div>
+      <div class="head" style="margin-bottom:0">
+        <div class="k">About Us</div>
+        <h2>Ideas to Reality, engineered in-house</h2>
+        <p>A leader in advanced manufacturing solutions, delivering world-class industrial automation systems with 18 years of expertise.</p>
+      </div>
+      <ul class="list">
+        <li><b>Design &amp; Development</b>: skilled team covering design, development and analysis</li>
+        <li><b>Assembly Lines</b>: production line solutions and system product assembly</li>
+        <li><b>Special-Purpose Machinery</b>: SPMs built to your precise requirement</li>
+        <li><b>Expert Advice</b>: guidance on designing and implementing automation</li>
+      </ul>
+      <a class="btn primary" href="#contact">Talk to Our Team</a>
+    </div>
+    <div class="panel">
+      <div class="bar"><div><span>Concept &amp; Design</span><b>Engineering</b></div><i style="--w:92%"></i></div>
+      <div class="bar"><div><span>Prototyping &amp; Manufacturing</span><b>Precision</b></div><i style="--w:88%"></i></div>
+      <div class="bar"><div><span>Automation &amp; Assembly</span><b>Turnkey</b></div><i style="--w:95%"></i></div>
+      <div class="bar" style="margin-bottom:0"><div><span>Deployment &amp; Support</span><b>Reliability</b></div><i style="--w:90%"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="head">
+      <div class="k">How We Work</div>
+      <h2>From first sketch to running line</h2>
+      <p>A clear, collaborative process so you always know where your project stands.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h4>Discover</h4><p>We understand your process, goals and constraints.</p></div>
+      <div class="step"><h4>Design &amp; Analyse</h4><p>3D design, simulation and engineering analysis.</p></div>
+      <div class="step"><h4>Build &amp; Assemble</h4><p>Precision manufacturing and system assembly.</p></div>
+      <div class="step"><h4>Deploy</h4><p>Installation, commissioning and ongoing support.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="band">
+      <h2>Ready to transform your manufacturing process?</h2>
+      <p>Let's collaborate on innovative, efficient automation tailored to your needs.</p>
+      <a class="btn primary" href="#contact">Contact Us</a>
+      <a class="btn ghost" href="#" style="margin-left:8px">Download Brochure</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--bg2);border-top:1px solid var(--line)">
+  <div class="wrap contact">
+    <div class="info">
+      <div class="head" style="margin-bottom:24px">
+        <div class="k">Contact</div>
+        <h2>Let's build something precise</h2>
+        <p>Tell us about your project and our engineers will get back to you.</p>
+      </div>
+      <p><b>Corporate Address</b>[Client address shown here]</p>
+      <p><b>Call</b>[Client phone number]</p>
+      <p><b>Email</b>[Client email address]</p>
+    </div>
+    <form onsubmit="return false">
+      <div class="row"><input placeholder="Full name"><input placeholder="Company"></div>
+      <div class="row"><input type="email" placeholder="Email"><input placeholder="Phone"></div>
+      <input placeholder="Interested in (Solutions / Services / Smart Products)">
+      <textarea rows="4" placeholder="Tell us about your requirement"></textarea>
+      <button class="btn primary" style="border:0;cursor:pointer">Send Enquiry</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Homepage concept for 3D Concept Analysis &amp; Development (India) Pvt. Ltd.</span>
+    <span>Design concept by <a href="#">Aiyzer</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
